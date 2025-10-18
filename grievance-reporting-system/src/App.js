@@ -4,18 +4,16 @@ import { BrowserRouter, Routes, Route} from 'react-router-dom';
 // import Navbar from './components/Navbar.js'
 import Form from './components/Form.js'
 import SignInPage from './components/Sign-in-page'
+import Dashboard from './components/Dashboard.js'
 
 function App() {
   return (
     <>
     <BrowserRouter>
-      {/* 
-    <Form /> */}
-      {/* <Navbar /> */}
        <Routes>
-        <Route path="/form" element={<Form />} />
-        <Route path="/" element={<SignInPage />} />
+        <Route path="/user/form" element={<Form />} />
         <Route path="/sign-in" element={<SignInPage />} />
+        <Route path="/admin/dashboard" element={<Dashboard />} />
       </Routes>
       
       </BrowserRouter>

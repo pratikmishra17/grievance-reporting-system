@@ -1,5 +1,5 @@
 
-function Navbar(){
+function AdminNavbar(){
 return(
 <nav className="relative bg-gradient-to-b from-gray-400">
   <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -24,7 +24,7 @@ return(
         <div className="hidden sm:ml-6 sm:block">
           <div className="flex space-x-4">
             <a href="#" className="rounded-md px-3 py-2 text-sm font-medium text-gray-600 hover:bg-white/5 hover:text-gray-900">Home Page</a>
-            <a href="#" className="rounded-md px-3 py-2 text-sm font-medium text-gray-600 hover:bg-white/5 hover:text-gray-900">New Ticket</a>
+            <a href="#" className="rounded-md px-3 py-2 text-sm font-medium text-gray-600 hover:bg-white/5 hover:text-gray-900">View Tickets</a>
             <a href="#" className="rounded-md px-3 py-2 text-sm font-medium text-gray-600 hover:bg-white/5 hover:text-gray-900">Status</a>
           </div>
         </div>
@@ -41,8 +41,7 @@ return(
       </div>
     </div>
   </div>
-
 </nav>
 );
 }
-export default Navbar
+export default AdminNavbar

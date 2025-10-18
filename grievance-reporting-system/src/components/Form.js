@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import Navbar from './Navbar.js'
 
 function Form() {
+  
   // State to hold location data and status messages
   const [location, setLocation] = useState(null);
   const [status, setStatus] = useState('idle'); // idle, fetching, success, error
@@ -38,6 +40,8 @@ function Form() {
 
 
   return (
+    <>
+    <Navbar />
     <div className="bg-gray-100 min-h-screen flex items-center justify-center p-4">
       <div className="w-full max-w-lg bg-white p-8 rounded-xl shadow-lg space-y-6">
         <h1 className="text-2xl font-bold text-gray-800 text-center">Raise a complaint</h1>
@@ -135,6 +139,7 @@ function Form() {
         </form>
       </div>
     </div>
+    </>
   );
 }
 
