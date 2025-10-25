@@ -16,6 +16,7 @@ function App() {
         <Route path="/admin/login" element={<AdminLogInPage />} />
         <Route path="/sign-in" element={<SignInPage />} />
         <Route path="/admin/dashboard" element={<Dashboard />} />
+        <Route path="/" element={<SignInPage />} />
       </Routes>
       
       </BrowserRouter>
