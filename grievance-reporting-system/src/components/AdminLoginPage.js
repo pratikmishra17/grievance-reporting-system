@@ -5,6 +5,7 @@ function AdminLogInPage() {
     // You can log other variables or state here as well
   };
   return (
+    
     <div className="min-h-screen flex items-center justify-center p-4">
       <div className="flex items-center justify-center max-md:gap-8 max-w-md max-md:max-w-lg w-full p-4 [box-shadow:0_2px_10px_-3px_rgba(6,81,237,0.3)] rounded-md">
         <div className="md:max-w-md w-full px-6 py-6">

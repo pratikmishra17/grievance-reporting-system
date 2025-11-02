@@ -1,27 +1,42 @@
 import './App.css';
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Routes, Route} from 'react-router-dom';
-// import Navbar from './components/Navbar.js'
-import Form from './components/Form.js'
-import SignInPage from './components/UserLoginPage.js'
-import Dashboard from './components/Dashboard.js'
-import AdminLogInPage from './components/AdminLoginPage.js';
+import { Routes, Route } from 'react-router-dom';
+
+// Page Components
+import Form from './components/Form.js';
+import SignInPage from './components/UserLoginPage.js';
+import Dashboard from './components/Dashboard.js';
+import UserHomePage from './components/userHomePage.js';
+import UserStatus from './components/UserStatus.js';
+import AccountPage from './components/AccountPage.js';
+
+// Guard Components
+import UserRoute from './components/UserRoute.js';
+import AdminRoute from './components/AdminRoute.js';
 
 function App() {
   return (
-    <>
-    <BrowserRouter>
-       <Routes>
+    <Routes>
+
+      <Route path="/sign-in" element={<SignInPage />} />
+      <Route path="/" element={<SignInPage />} />
+
+      <Route element={<UserRoute />}>
+        <Route path="/user/homepage" element={<UserHomePage />} />
+        <Route path="/user/status" element={<UserStatus />} />
         <Route path="/user/form" element={<Form />} />
-        <Route path="/admin/login" element={<AdminLogInPage />} />
-        <Route path="/sign-in" element={<SignInPage />} />
+
+        <Route path="/user/account" element={<AccountPage />} /> 
+      </Route>
+
+      <Route element={<AdminRoute />}>
         <Route path="/admin/dashboard" element={<Dashboard />} />
-        <Route path="/" element={<SignInPage />} />
-      </Routes>
-      
-      </BrowserRouter>
-    </>
+        <Route path="/admin/account" element={<AccountPage />} />
+
+      </Route>
+
+    </Routes>
   );
 }
 
 export default App;
+
