@@ -17,7 +17,7 @@ function AdminRoute() {
     return <Outlet />;
   }
 
-  return <Navigate to="/user/homepage" replace />;
+  return <Navigate to="/admin/dashboard" replace />;
 }
 
 export default AdminRoute;

@@ -1,4 +1,28 @@
+/* In your index.css file */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  body {
+    @apply min-h-screen bg-slate-950 font-mono;
+    
+    /* Apply multiple gradients by separating them with a comma */
+    background-image: 
+      /* Gradient 1: The top-left teal glow */
+      radial-gradient(
+        ellipse at top left,  
+        rgba(20, 184, 166, 0.3),  /* teal-500 at 30% */
+        transparent 90%
+      ),
+      /* Gradient 2: A top-right purple glow */
+      radial-gradient(
+        ellipse at top left, 
+        rgba(168, 85, 247, 0.2),  /* purple-500 at 20% */
+        transparent 90%
+      );
+    
+    background-repeat: no-repeat;
+  }
+}

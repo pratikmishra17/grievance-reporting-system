@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { loginUser } from './ApiService';
+import { loginUser } from './ApiService.js';
 
 const AuthContext = createContext();
 
@@ -30,11 +30,14 @@ export const AuthProvider = ({ children }) => {
                 userId: loginResponse.userId,
                 userName: loginResponse.userName,
                 email: loginResponse.userEmail, 
-                role: loginResponse.role 
+                role: loginResponse.role,
+                userFirstName: loginResponse.firstName,
+                userLastName: loginResponse.lastName
             };
             
             setUser(userData); 
             localStorage.setItem("user", JSON.stringify(userData));
+            return loginResponse;
         
         } catch (error) {
             throw error; 

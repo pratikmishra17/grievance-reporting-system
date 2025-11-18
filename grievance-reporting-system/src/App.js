@@ -7,7 +7,7 @@ import SignInPage from './components/UserLoginPage.js';
 import Dashboard from './components/Dashboard.js';
 import UserHomePage from './components/userHomePage.js';
 import UserStatus from './components/UserStatus.js';
-import AccountPage from './components/AccountPage.js';
+
 
 // Guard Components
 import UserRoute from './components/UserRoute.js';
@@ -25,12 +25,10 @@ function App() {
         <Route path="/user/status" element={<UserStatus />} />
         <Route path="/user/form" element={<Form />} />
 
-        <Route path="/user/account" element={<AccountPage />} /> 
       </Route>
 
       <Route element={<AdminRoute />}>
         <Route path="/admin/dashboard" element={<Dashboard />} />
-        <Route path="/admin/account" element={<AccountPage />} />
 
       </Route>
 

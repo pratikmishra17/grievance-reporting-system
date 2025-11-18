@@ -1,65 +1,107 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from 'react';
+import { useAuth } from "../services/AuthContext.js";
 
 function AdminNavbar() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleConfirmLogout = () => {
+    logout();
+    setIsModalOpen(false);
+    navigate('/'); // Navigate to the main sign-in page
+  };
+
+  const handleCancelLogout = () => {
+    setIsModalOpen(false);
+  };
+
   return (
-    <nav className="bg-white/30 backdrop-blur-sm rounded-xl">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 relative">
+    <>
+      <nav className="bg-transparent">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center h-16 relative">
 
-          {/* Left: Logo */}
-          <div className="flex-shrink-0">
-            <Link to="/user/homepage">
-              <img src="/favicon.ico" alt="Logo" className="h-8 w-auto" />
-            </Link>
-          </div>
+            {/* Left: Logo */}
+            <div className="flex-shrink-0">
+              <Link to="/admin/dashboard">
+                <img src="/favicon.ico" alt="Logo" className="h-8 w-auto" />
+              </Link>
+            </div>
 
-          {/* Center: Links */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 hidden sm:flex space-x-6">
-            <Link
-              to="/admin/dashboard"
-              className="rounded-md px-3 py-2 text-sm font-mono text-gray-700 hover:text-indigo-700 hover:bg-white/30"
-            >
-              Home
-            </Link>
-            <Link
-              to="/user/status"
-              className="rounded-md px-3 py-2 text-sm font-mono text-gray-700 hover:text-indigo-700 hover:bg-white/30"
-            >
-              Status
-            </Link>
-            <Link
-              to="/admin/account"
-              className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
-            >
-              Account
-            </Link>
-          </div>
-
-          {/* Right: Notification */}
-          <div className="flex items-center space-x-4">
-            <button
-              type="button"
-              className="relative rounded-full p-1 text-gray-600 hover:text-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-            >
-              <span className="sr-only">View notifications</span>
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                className="w-6 h-6"
+            {/* Center: Links */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 hidden sm:flex space-x-6">
+              <Link
+                to="/admin/dashboard"
+                className="rounded-md px-3 py-2 text-3xl font-mono text-white hover:text-black hover:bg-white/30"
               >
-                <path
-                  d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0018 9.75V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </button>
+                Admin Dashboard
+              </Link>
+              {/* "Account" link removed */}
+            </div>
+
+            {/* Right: Notification & Sign Out */}
+            <div className="ml-auto flex items-center space-x-4">
+              
+
+              {/* --- Sign Out Button --- */}
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="rounded-md px-3 py-2 text-md font-mono text-white hover:text-black hover:bg-white/30"
+              >
+                Sign Out
+              </button>
+            </div>
           </div>
         </div>
+      </nav>
+
+      {/* --- Confirmation Modal --- */}
+      <LogoutConfirmationModal
+        isOpen={isModalOpen}
+        onConfirm={handleConfirmLogout}
+        onCancel={handleCancelLogout}
+      />
+    </>
+  );
+}
+
+// --- Modal Component ---
+function LogoutConfirmationModal({ isOpen, onConfirm, onCancel }) {
+  if (!isOpen) return null;
+
+  return (
+    // Full-screen overlay
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
+      {/* Modal container */}
+      <div className="relative w-full max-w-md p-6 bg-white rounded-xl shadow-2xl m-4">
+        
+        {/* Title */}
+        <h2 className="text-2xl font-bold text-gray-900 mb-4">Log Out</h2>
+        
+        {/* Message */}
+        <p className="text-gray-700">
+          Are you sure you want to log out?
+        </p>
+
+        {/* Buttons */}
+        <div className="flex justify-end space-x-4 mt-6">
+          <button
+            onClick={onCancel}
+            className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200"
+          >
+            Cancel
+          </button>
+          <button
+            onClick={onConfirm}
+            className="px-4 py-2 text-sm font-medium text-white bg-teal-500 rounded-md hover:bg-teal-700"
+          >
+            Log Out
+          </button>
+        </div>
       </div>
-    </nav>
+    </div>
   );
 }
 
