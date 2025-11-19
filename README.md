@@ -21,25 +21,28 @@ A full-stack web application designed to bridge the gap between citizens and loc
 
 ## Screenshots
 
-### 1. Sign In & Registration
-*(Place your Sign In / Register page screenshot here)*
-![Sign In Screen](path/to/your/screenshot_signin.png)
+### 1. Sign In
+<img width="960" height="497" alt="image" src="https://github.com/user-attachments/assets/05b22315-2b04-4278-87b9-1877ee8e7531" />
 
-### 2. User Portal - Home Page
-*(Place your User Home Page screenshot here)*
-![User Home Page](path/to/your/screenshot_user_home.png)
 
-### 3. User Portal - Status & Tracking
-*(Place your User Status/Table screenshot here)*
-![User Status Page](path/to/your/screenshot_user_status.png)
+### 2. Registration
+<img width="960" height="499" alt="image" src="https://github.com/user-attachments/assets/d4a793c5-1974-4342-8177-5407dc693499" />
 
-### 4. Admin Dashboard
-*(Place your Admin Dashboard screenshot here)*
-![Admin Dashboard](path/to/your/screenshot_admin_dashboard.png)
+### 3. User Portal - Home Page
+<img width="960" height="501" alt="image" src="https://github.com/user-attachments/assets/20a246f5-fe26-43d4-a8d4-0dd5ec9a135f" />
+
+
+### 4. User Portal - Status & Tracking
+<img width="960" height="501" alt="image" src="https://github.com/user-attachments/assets/aefce310-975d-4d46-bed7-4e3c0c9dc050" />
+
+
+### 5. Admin Dashboard
+<img width="960" height="499" alt="image" src="https://github.com/user-attachments/assets/e0b25229-62d2-433d-9812-0a744bbda0ff" />
+
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 **Frontend:**
 * **React.js**: Component-based UI architecture.
