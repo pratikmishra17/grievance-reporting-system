@@ -38,7 +38,7 @@ public class SecurityConfig {
         configuration.setAllowedOrigins(Arrays.asList(
             "http://localhost:3000",                        //  local React
             "https://grievance-reporting-system.onrender.com", // Your Backend URL
-            "https://grievance-frontend.onrender.com"       // Your FUTURE Frontend URL (add your actual one here once created)
+            "https://reportingsystem.vercel.app/"       // Your FUTURE Frontend URL (add your actual one here once created)
         ));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type", "X-Requested-With"));
