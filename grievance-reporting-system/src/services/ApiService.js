@@ -1,4 +1,5 @@
-const API_BASE_URL = 'http://localhost:8085';
+// const API_BASE_URL = 'http://localhost:8085';
+const API_BASE_URL = 'https://grievance-reporting-system.onrender.com';
 
 export const registerUser = async (userData) => {
   try {
